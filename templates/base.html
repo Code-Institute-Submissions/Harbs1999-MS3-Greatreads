@@ -8,11 +8,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href= "{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <!-- Materialize Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {% block styles %}
     {% endblock %}
     <title>Greatreads</title>
 </head>
 <body>
+
+    <header>
+        <!-- Sidenav -->
+        <div class= navbar-fixed>
+        <nav class="nav-extended nav-style deep-orange darken-1">
+            <div class="nav-wrapper">
+              <a href="{{ url_for('get_books') }}" class="brand-logo center">Greatreads</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <div>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('get_books') }}">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Log Out</a></li>
+                <li><a href="#">Log In</a></li>
+              </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <!-- Mobile Sidenav -->
+          <ul class="sidenav" id="mobile-demo">
+              <h3 id="mobile-nav-heading" class="left-align deep-orange-text text-darken-1">Greatreads</h3>
+            <li><a href="{{ url_for('get_books') }}">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Log Out</a></li>
+            <li><a href="#">Log In</a></li>
+    </header>
+
+
     {% block content %}
     {% endblock %}
 
