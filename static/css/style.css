@@ -1,5 +1,6 @@
 body {
-
+background: url(/static/img/book-background.jpg);
+background-position: relative;
 }
 
 .nav-style {
@@ -10,4 +11,76 @@ font-weight: 500;
 #mobile-nav-heading {
     margin-left: 20px;
     font-weight: 500;
+}
+
+.card-panel {
+    margin-top: 200px;
+    box-shadow: 2px 2px 2px 2px #000;
+}
+
+.card-panel h2 {
+    margin: 0px 0px 30px 0px;
+}
+
+/* Materialize Label Colors/styling */
+
+.input-field label {
+    color: #000;
+}
+
+.input-field input[type=text] {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.input-field input[type=text].valid {
+    border-bottom: 2px solid #008000;
+    box-shadow: 0 2px 0 0 #008000;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+    box-shadow: 0 1px 0 0 #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label {
+    color: white;
+}
+
+.input-field .prefix.active {
+    color: rgb(255, 255, 255);
+}
+
+input[type=password]:not(.browser-default) {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.input-field input[type=password].valid {
+    border-bottom: 2px solid #008000;
+    box-shadow: 0 2px 0 0 #008000;
+}
+
+input[type=password]:not(.browser-default):focus:not([readonly]) {
+    box-shadow: 0 1px 0 0 #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+input[type=password]:not(.browser-default):focus:not([readonly])+label {
+    color: white;
+}
+
+.input-field input[type=text].invalid {
+    border-bottom: 2px solid #b71c1c;
+    box-shadow: 0 2px 0 0 #b71c1c;
+  }
+
+  .input-field input[type=password].invalid {
+    border-bottom: 2px solid #b71c1c;
+    box-shadow: 0 2px 0 0 #b71c1c;
+  }
+
+.flash h3 {
+    line-height: 2;
+    margin: 0;
 }

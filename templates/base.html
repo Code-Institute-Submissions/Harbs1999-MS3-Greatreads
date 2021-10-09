@@ -9,7 +9,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href= "{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <!-- Materialize Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     {% block styles %}
     {% endblock %}
     <title>Greatreads</title>
@@ -28,9 +28,9 @@
                 <li><a href="{{ url_for('get_books') }}">Home</a></li>
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Books</a></li>
-                <li><a href="#">Sign Up</a></li>
                 <li><a href="#">Log Out</a></li>
                 <li><a href="#">Log In</a></li>
+                <li><a href="{{ url_for('sign_up') }}">Sign Up</a></li>
               </ul>
               </div>
             </div>
@@ -42,14 +42,30 @@
             <li><a href="{{ url_for('get_books') }}">Home</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Books</a></li>
-            <li><a href="#">Sign Up</a></li>
             <li><a href="#">Log Out</a></li>
             <li><a href="#">Log In</a></li>
+            <li><a href="{{ url_for('sign_up') }}">Sign Up</a></li>
+          </ul>
     </header>
 
+    <section>
+      <!-- Alert Message -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="row flash">
+                <h3 class="blue-grey darken-1 center-align">{{ message }}</h3>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </section>
 
+
+<main class="container">
     {% block content %}
     {% endblock %}
+</main>
 
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
