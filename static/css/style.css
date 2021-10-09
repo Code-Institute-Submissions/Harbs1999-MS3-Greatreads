@@ -1,6 +1,8 @@
 body {
 background: url(/static/img/book-background.jpg);
 background-position: relative;
+
+font-weight: 600;
 }
 
 .nav-style {
@@ -83,4 +85,9 @@ input[type=password]:not(.browser-default):focus:not([readonly])+label {
 .flash h3 {
     line-height: 2;
     margin: 0;
+}
+
+.under-card-text {
+    margin-top: 17px;
+    font-size: x-large;
 }

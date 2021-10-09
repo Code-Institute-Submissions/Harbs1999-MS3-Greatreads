@@ -22,14 +22,14 @@
         <nav class="nav-extended nav-style deep-orange darken-1">
             <div class="nav-wrapper">
               <a href="{{ url_for('get_books') }}" class="brand-logo center">Greatreads</a>
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
               <div>
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_books') }}">Home</a></li>
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Books</a></li>
                 <li><a href="#">Log Out</a></li>
-                <li><a href="#">Log In</a></li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
                 <li><a href="{{ url_for('sign_up') }}">Sign Up</a></li>
               </ul>
               </div>
@@ -43,7 +43,7 @@
             <li><a href="#">Profile</a></li>
             <li><a href="#">Books</a></li>
             <li><a href="#">Log Out</a></li>
-            <li><a href="#">Log In</a></li>
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('sign_up') }}">Sign Up</a></li>
           </ul>
     </header>
