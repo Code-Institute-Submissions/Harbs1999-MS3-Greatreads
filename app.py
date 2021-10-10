@@ -44,6 +44,7 @@ def sign_up():
         # user 'session' cookie 
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("sign_up.html")
 
@@ -61,6 +62,8 @@ def login():
                 existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
+                
+                return redirect(url_for("profile", username=session["user"]))
             else:
                 flash("Incorrect Username/Password")
                 return redirect(url_for("login"))
@@ -69,6 +72,14 @@ def login():
             flash(Markup("Incorrect Username/Password <a href='{{ url_for('sign_up') }}'>Sign up here!</a>"))
 
     return render_template("login.html")
+
+
+@app.route("/profile/<username>")
+def profile(username):
+    # Grab the current sessions username to display
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("profile.html", username=username)
 
 
 if __name__ == "__main__":
