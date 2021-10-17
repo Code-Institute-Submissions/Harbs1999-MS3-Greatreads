@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+    {% block content %}
+
+  {% for book in books %}
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel deep-orange accent-2 white-text">
+          <div class="row">
+            <img src='{{ book.book_cover }}' class="col s12 m3 responsive-img" id="image" alt="book_cover">
+            <div>
+              <h4 class="col s11 m7 center-align" id="book_title_author">{{ book.book_title }}
+                <br> by {{ book.author }}</h4>
+            </div>
+            <div class="col s1 m2 center-align">
+              <a href=""><i class="far fa-thumbs-up"></i></a>
+              <p class="likes">Likes</p>
+            </div>
+            <p class="col s12">{{ book.book_desc }}</p>
+            <br>
+          </div>
+          <div class="center-align">
+              <h4>Reviews</h4>
+              <h6 class="col s12 left-align">{{ username }}'s review:</h6>
+              <br>
+              <p>{{ book.review }}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+{% endblock %}

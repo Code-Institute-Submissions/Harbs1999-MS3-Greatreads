@@ -93,6 +93,15 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/book")
+def book():
+    books = mongo.db.books.find()
+    
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("book.html", books=books, username=username)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

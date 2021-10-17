@@ -4,11 +4,12 @@
 
 
 <div class="row">
-    <form class="col s12 m8 offset-m2">
+    <div class="col s12 m8 offset-m2">
         <div class="card-panel deep-orange accent-2">
             {{ username }}'s Profile
+            <a href="{{ url_for('book') }}">Book</a>
         </div>
-    </form>
+    </div>
 </div>
 
 {% endblock %}

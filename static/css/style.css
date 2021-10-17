@@ -5,6 +5,14 @@ background-position: relative;
 font-weight: 600;
 }
 
+#logo {
+    font-size: 3rem;
+}
+
+nav ul a {
+    font-size: 1.3rem;
+}
+
 .nav-style {
 text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.75);
 font-weight: 500;
@@ -90,4 +98,23 @@ input[type=password]:not(.browser-default):focus:not([readonly])+label {
 .under-card-text {
     margin-top: 17px;
     font-size: x-large;
+}
+
+/*  Book details   */
+
+/* #image {
+    display: inline-block;
+} */
+
+i.fa-thumbs-up {
+    font-size: 1.8rem;
+    margin: 20px 0;
+}
+
+/* #book_title_author {
+    font-size: 1.5rem;
+} */
+
+.likes {
+    margin: 0;
 }
