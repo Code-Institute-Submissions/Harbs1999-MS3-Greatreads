@@ -13,9 +13,17 @@ nav ul a {
     font-size: 1.3rem;
 }
 
+h1,h2,h3,h4,h5,h6 {
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.75);
+}
+
+i {
+    margin-left: 5px;
+}
+
 .nav-style {
-text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.75);
-font-weight: 500;
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.75);
+    font-weight: 500;
 }
 
 #mobile-nav-heading {
@@ -117,4 +125,18 @@ i.fa-thumbs-up {
 
 .likes {
     margin: 0;
+}
+
+/*----- Books ------*/
+
+.row h2 {
+    text-shadow: 2px 2px #ff4800;
+}
+
+.card-content p {
+    font-size: 1.5rem;
+}
+
+#books-image {
+    max-height: 134px;
 }

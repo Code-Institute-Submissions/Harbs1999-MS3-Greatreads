@@ -1,6 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
 
-Hi
+{% for book in books %}
+
+<div class="container">
+    <div class="row">
+        <h2 class="center-align black-text col s12">All Books</h2>
+        <a class="waves-effect waves-light btn-large col s6 offset-s3">Add Book<i class="far fa-plus-square"></i></a>
+    </div>
+    <div class="col s12 m5">
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="{{ book.book_cover }}" class="responsive-img" id="books-image">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <a><p>{{ book.book_title }} by {{ book.author }}</p></a>
+                </div>
+                <div class="card-action">
+                    <div class="switch">
+                        <label>
+                          Unread
+                          <input disabled type="checkbox">
+                          <span class="lever"></span>
+                          Read
+                        </label>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
 
 {% endblock %}
