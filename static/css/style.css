@@ -32,7 +32,7 @@ i {
 }
 
 .card-panel {
-    margin-top: 150px;
+    margin-top: 125px;
     box-shadow: 2px 2px 2px 2px #000;
 }
 
@@ -40,10 +40,15 @@ i {
     margin: 0px 0px 30px 0px;
 }
 
+.flash h3 {
+    line-height: 2;
+    margin: 0;
+}
+
 /* Materialize Label Colors/styling */
 
 .input-field label {
-    color: #000;
+    color: rgba(0, 0, 0, 0.75);
 }
 
 .input-field input[type=text] {
@@ -54,6 +59,11 @@ i {
 .input-field input[type=text].valid {
     border-bottom: 2px solid #008000;
     box-shadow: 0 2px 0 0 #008000;
+}
+
+.input-field input[type=text].invalid {
+    border-bottom: 2px solid #b71c1c;
+    box-shadow: 0 2px 0 0 #b71c1c;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]) {
@@ -88,19 +98,33 @@ input[type=password]:not(.browser-default):focus:not([readonly])+label {
     color: white;
 }
 
-.input-field input[type=text].invalid {
+.input-field input[type=password].invalid {
     border-bottom: 2px solid #b71c1c;
     box-shadow: 0 2px 0 0 #b71c1c;
-  }
+}
 
-  .input-field input[type=password].invalid {
+.input-field textarea {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.input-field textarea.valid {
+    border-bottom: 2px solid #008000;
+    box-shadow: 0 2px 0 0 #008000;
+}
+
+.input-field textarea.invalid {
     border-bottom: 2px solid #b71c1c;
     box-shadow: 0 2px 0 0 #b71c1c;
-  }
+}
 
-.flash h3 {
-    line-height: 2;
-    margin: 0;
+textarea:not(.browser-default):focus:not([readonly]) {
+    box-shadow: 0 1px 0 0 #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+textarea:not(.browser-default):focus:not([readonly])+label {
+    color: white;
 }
 
 .under-card-text {
@@ -129,14 +153,14 @@ i.fa-thumbs-up {
 
 /*----- Books ------*/
 
-.row h2 {
-    text-shadow: 2px 2px #ff4800;
-}
-
 .card-content p {
     font-size: 1.5rem;
 }
 
 #books-image {
-    max-height: 134px;
+    max-width: 134px;
+}
+
+.card-content p {
+    line-height: 400%
 }

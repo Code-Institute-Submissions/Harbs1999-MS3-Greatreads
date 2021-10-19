@@ -107,6 +107,11 @@ def book():
     return render_template("book.html", books=books, username=username)
 
 
+@app.route("/add_book")
+def add_book():
+    return render_template("add_book.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <h2 class="center-align black-text col s12">All Books</h2>
-        <a class="waves-effect waves-light btn-large col s6 offset-s3">Add Book<i class="far fa-plus-square"></i></a>
+        <a href="{{ url_for('add_book') }}" class="waves-effect waves-light btn-large col s6 offset-s3">Add Book<i class="far fa-plus-square"></i></a>
     </div>
     <div class="col s12 m5">
         <div class="card horizontal">
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 {% endfor %}
 
