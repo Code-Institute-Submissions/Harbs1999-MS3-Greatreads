@@ -2,14 +2,41 @@
 {% block content %}
 
 
+<div class=row>
+    <h2 class="center-align black-text col s12">{{ username }}'s Books</h2>
 
-<div class="row">
-    <div class="col s12 m8 offset-m2">
-        <div class="card-panel deep-orange accent-2">
-            {{ username }}'s Profile
-            <a href="{{ url_for('book') }}">Book</a>
+    {% for book in books %}
+    <div class="col s12 m4">
+        <div class="card horizontal">
+            <!-- Book Card - Image -->
+            <div class="card-image">
+                <img src="{{ book.book_cover }}" class="responsive-img" id="books-image">
+            </div>
+            <div class="card-stacked">
+                <!-- Book Card - Title and Author -->
+                <div class="card-content">
+                    <a href="{{ url_for('book', book_id=book._id) }}">
+                        <p>{{ book.book_title }} by {{ book.book_author }}</p>
+                    </a>
+                </div>
+                <div class="card-action">
+                    <!-- Book Card - "Read" Switch Toggle -->
+                    <div class="switch">
+                        <label>
+                            Unread
+                            <input type="checkbox" id="have_read" name="have_read">
+                            <span class="lever"></span>
+                            Read
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
+
+{% endfor %}
+</div>           
+
 
 {% endblock %}

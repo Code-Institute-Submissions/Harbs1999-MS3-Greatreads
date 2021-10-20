@@ -73,11 +73,13 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>")
-def profile(username):
+@app.route("/profile/<username>/<book_id>")
+def profile(username, book_id):
     # Grab the current sessions username to display
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+
+        
 
     if session["user"]:
         return render_template("profile.html", username=username)
@@ -98,17 +100,30 @@ def get_books():
     return render_template("books.html", books=books)
 
 
-@app.route("/book")
-def book():
-    books = mongo.db.books.find()
+@app.route("/book/<book_id>")
+def book(book_id):
+    books = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     return render_template("book.html", books=books, username=username)
 
 
-@app.route("/add_book")
+@app.route("/add_book", methods=["GET", "POST"])
 def add_book():
+    if request.method == "POST":
+        book_details = {
+            "book_cover": request.form.get("book_cover"),
+            "book_title": request.form.get("book_title"),
+            "book_author": request.form.get("book_author"),
+            "book_desc": request.form.get("book_desc"),
+            "review": request.form.get("review"),
+            "user": session["user"]
+        }
+        mongo.db.books.insert_one(book_details)
+        flash("Your book has been added!")
+        return redirect(url_for('book'))
+        
     return render_template("add_book.html")
 
 

@@ -32,7 +32,7 @@ i {
 }
 
 .card-panel {
-    margin-top: 125px;
+    margin-top: 75px;
     box-shadow: 2px 2px 2px 2px #000;
 }
 
@@ -154,13 +154,13 @@ i.fa-thumbs-up {
 /*----- Books ------*/
 
 .card-content p {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 #books-image {
     max-width: 134px;
 }
 
-.card-content p {
+/* .card-content p {
     line-height: 400%
-}
+} */

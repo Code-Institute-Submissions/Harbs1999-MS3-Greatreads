@@ -1,31 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% for book in books %}
 
 <div class="container">
     <div class="row">
         <h2 class="center-align black-text col s12">All Books</h2>
-        <a href="{{ url_for('add_book') }}" class="waves-effect waves-light btn-large col s6 offset-s3">Add Book<i class="far fa-plus-square"></i></a>
+        <!-- Link to add book form -->
+        {% if session.user %}
+        <a href="{{ url_for('add_book') }}" class="waves-effect waves-light btn-large col s6 offset-s3">Add Book<i
+                class="far fa-plus-square"></i></a>
+        {% endif %}
     </div>
+    {% for book in books %}
     <div class="col s12 m5">
         <div class="card horizontal">
+            <!-- Book Card - Image -->
             <div class="card-image">
                 <img src="{{ book.book_cover }}" class="responsive-img" id="books-image">
             </div>
             <div class="card-stacked">
-                <div class="card-content">
-                    <a><p>{{ book.book_title }} by {{ book.author }}</p></a>
+                <!-- Book Card - Title and Author -->
+                <div class="card-content center-align">
+                    <a href="{{ url_for('book', book_id=book._id) }}">
+                        <p>{{ book.book_title }} by {{ book.book_author }}</p>
+                    </a>
                 </div>
                 <div class="card-action">
+                    <!-- Book Card - "Read" Switch Toggle -->
                     <div class="switch">
                         <label>
-                          Unread
-                          <input disabled type="checkbox">
-                          <span class="lever"></span>
-                          Read
+                            Unread
+                            <input type="checkbox" id="have_read" name="have_read">
+                            <span class="lever"></span>
+                            Read
                         </label>
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>

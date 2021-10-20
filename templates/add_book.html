@@ -3,7 +3,7 @@
 
 
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('sign_up') }}">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_book') }}">
         <div class="card-panel deep-orange accent-2">
             <h2 class="center-align black-text">Add Book</h2>
             <!-- Book Cover -->
@@ -18,37 +18,46 @@
             <div class="row">
                 <div class="input-field col s10">
                     <i class="fas fa-book prefix"></i>
-                    <input id="book_title" name="book_title" type="text"
-                     class="validate" maxlength="30" minlength="2" pattern="^[a-zA-Z0-9]{5,15}$" required>
+                    <input id="book_title" name="book_title" type="text" class="validate" maxlength="30" minlength="2"
+                        pattern="^[a-zA-Z0-9À-ž\s]{2,30}$" required>
                     <label for="book_title">Book Title:</label>
+                </div>
+            </div>
+            <!-- Book Author -->
+            <div class="row">
+                <div class="input-field col s10">
+                    <i class="fas fa-user prefix"></i>
+                    <input id="book_author" name="book_author" type="text" class="validate" maxlength="20" minlength="3"
+                        pattern="^[a-zA-ZÀ-žÀ-ž\s]{2,20}$" required>
+                    <label for="book_author">Book Author:</label>
                 </div>
             </div>
             <!-- Book Description -->
             <div class="row">
                 <div class="col s12">
-                  <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-stream prefix"></i>
-                      <textarea id="book_desc" class="materialize-textarea validate" name="book_desc" 
-                      maxlength="200" minlength="25" required></textarea>
-                      <label for="book_desc">Book Description:</label>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-stream prefix"></i>
+                            <textarea id="book_desc" class="materialize-textarea validate" name="book_desc"
+                                maxlength="200" minlength="25" required></textarea>
+                            <label for="book_desc">Book Description:</label>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-              <!-- Review -->
+            </div>
+            <!-- Review -->
             <div class="row">
                 <div class="col s12">
-                  <div class="row">
-                    <div class="input-field col s12">
-                        <i class="far fa-comment-alt prefix"></i>
-                      <textarea id="review" class="materialize-textarea validate" name="review" 
-                      maxlength="150" minlength="4" required></textarea>
-                      <label for="review">Review:</label>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="far fa-comment-alt prefix"></i>
+                            <textarea id="review" class="materialize-textarea validate" name="review" maxlength="150"
+                                minlength="4" required></textarea>
+                            <label for="review">Review:</label>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
+            </div>
             <!-- Submit button -->
             <div class="row">
                 <button type="submit" class="col s12 offset-2 btn-large red darken-4 text-shadow">
