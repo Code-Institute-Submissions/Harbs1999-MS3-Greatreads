@@ -73,16 +73,16 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>/<book_id>")
-def profile(username, book_id):
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+
+    books = mongo.db.books.find()
     # Grab the current sessions username to display
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-        
-
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, books=books)
 
     return redirect(url_for("login"))
 
@@ -122,9 +122,17 @@ def add_book():
         }
         mongo.db.books.insert_one(book_details)
         flash("Your book has been added!")
-        return redirect(url_for('book'))
+        return redirect(url_for('get_books'))
         
     return render_template("add_book.html")
+
+
+@app.route("/edit_book/<book_id>", methods=["GET", "POST"])
+def edit_book(book_id):
+
+    books = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+
+    return render_template("edit_book.html", books=books)
 
 
 if __name__ == "__main__":

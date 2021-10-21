@@ -2,17 +2,17 @@
 {% block content %}
 
 
-<h2 class="center-align black-text">Add Book</h2>
+<h2 class="center-align black-text">Edit Book</h2>
 
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_book') }}">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_book', book_id=books._id) }}">
         <div class="card-panel deep-orange accent-2">
             
             <!-- Book Cover -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-image prefix"></i>
-                    <input id="book_cover" name="book_cover" type="text">
+                    <input id="book_cover" name="book_cover" type="text" value="{{ books.book_cover }}">
                     <label for="book_cover">Book Cover (Image URL):</label>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="input-field col s10">
                     <i class="fas fa-book prefix"></i>
                     <input id="book_title" name="book_title" type="text" class="validate" maxlength="30" minlength="2"
-                        pattern="^[a-zA-Z0-9À-ž\s]{2,30}$" required>
+                        pattern="^[a-zA-Z0-9À-ž\s]{2,30}$" value="{{ books.book_title }}" required>
                     <label for="book_title">Book Title:</label>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="input-field col s10">
                     <i class="fas fa-user prefix"></i>
                     <input id="book_author" name="book_author" type="text" class="validate" maxlength="20" minlength="3"
-                        pattern="^[a-zA-ZÀ-žÀ-ž\s]{2,20}$" required>
+                        pattern="^[a-zA-ZÀ-žÀ-ž\s]{2,20}$" value="{{ books.book_author }}" required>
                     <label for="book_author">Book Author:</label>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                         <div class="input-field col s12">
                             <i class="fas fa-stream prefix"></i>
                             <textarea id="book_desc" class="materialize-textarea validate" name="book_desc"
-                                maxlength="200" minlength="25" required></textarea>
+                                maxlength="200" minlength="25" required>{{ books.book_desc }}</textarea>
                             <label for="book_desc">Book Description:</label>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         <div class="input-field col s12">
                             <i class="far fa-comment-alt prefix"></i>
                             <textarea id="review" class="materialize-textarea validate" name="review" maxlength="150"
-                                minlength="4" required></textarea>
+                                minlength="4" required>{{ books.review }}</textarea>
                             <label for="review">Review:</label>
                         </div>
                     </div>
@@ -62,9 +62,14 @@
             </div>
             <!-- Submit button -->
             <div class="row">
-                <button type="submit" class="col s12 offset-2 btn-large red darken-4 text-shadow">
-                    Add <i class="fas fa-plus"></i>
+                <div class="center-align">
+                <button type="submit" class="btn-large green darken-1 text-shadow">
+                    Edit <i class="fas fa-edit"></i>
                 </button>
+                <a href="{{ url_for('get_books') }}" class="btn-large red darken-4 text-shadow">
+                    Cancel <i class="fas fa-times"></i>
+                </a>
+                </div>
             </div>
         </div>
     </form>
