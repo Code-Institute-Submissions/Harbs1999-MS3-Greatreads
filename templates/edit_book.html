@@ -63,12 +63,14 @@
             <!-- Submit button -->
             <div class="row">
                 <div class="center-align">
-                <button type="submit" class="btn-large green darken-1 text-shadow">
-                    Edit <i class="fas fa-edit"></i>
-                </button>
-                <a href="{{ url_for('get_books') }}" class="btn-large red darken-4 text-shadow">
-                    Cancel <i class="fas fa-times"></i>
-                </a>
+                {% if session.user|lower == books.user|lower %}
+                    <button type="submit" class="btn-large green darken-1 text-shadow">
+                        Edit <i class="fas fa-edit"></i>
+                    </button>
+                    <a href="{{ url_for('get_books') }}" class="btn-large red darken-4 text-shadow">
+                        Cancel <i class="fas fa-times"></i>
+                    </a>
+                {% endif %}
                 </div>
             </div>
         </div>
