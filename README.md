@@ -1,4 +1,4 @@
-# Milestone Project Three: Greatreads
+t# Milestone Project Three: Greatreads
 
 ## User Experience (UX)
 ### User Stories:
@@ -44,7 +44,10 @@ I used a simple repeating book background image for the background as I believe 
 ### Features Left to Implement:
 *  Ability to like books will be implemented in the future.
 ## Deployment
-
+* I ensured my repo had been added, committed and pushed.
+* I ensured my var configs on Heroku were all correct.
+* I connected github to Heroku.
+* I deployed my project on Heroku.
 
 ## Technologies Used
 ### Languages Used:
@@ -71,7 +74,6 @@ I used a simple repeating book background image for the background as I believe 
 ## Bugs that Need Fixing
 *  A bug that needs fixing is that reviews show on all books instead of a specific one. I could not figure out the logic for this and will enquire with peers in the future to fix the problem.
 ## Credits
-### Content:
 ### Code:
 *  Code was used from the Materialize framework to create the style of pages.
 *  Code was used from the Code Institute Task Manager Mini Project to set up some of the log in/sign up functionality.
