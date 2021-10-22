@@ -138,18 +138,10 @@ textarea:not(.browser-default):focus:not([readonly])+label {
 
 /*  Book details   */
 
-/* #image {
-    display: inline-block;
-} */
-
 i.fa-thumbs-up {
     font-size: 1.8rem;
     margin: 20px 0;
 }
-
-/* #book_title_author {
-    font-size: 1.5rem;
-} */
 
 .likes {
     margin: 0;
@@ -164,10 +156,6 @@ i.fa-thumbs-up {
 #books-image {
     max-width: 134px;
 }
-
-/* .card-content p {
-    line-height: 400%
-} */
 
 h4 {
     margin-bottom: 25px;
