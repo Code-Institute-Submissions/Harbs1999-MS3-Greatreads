@@ -1,6 +1,28 @@
-    {% extends "base.html" %}
+{% extends "base.html" %}
     {% block content %}
 
+    <div class="row">
+    <div class="center-align">
+    {% if session.user|lower == "admin"|lower %}
+        <a href="{{ url_for('edit_featured') }}" class="btn-large green darken-1 s12 add-featured">Add</a>
+    {% endif %}
+    </div>
+    <h2 class="center-align black-text">Featured Book of The Week</h2>
+    <div class="row">
+        <div class="col s12">
+          <div class="card-panel deep-orange accent-2 white-text">
+            <div class="row">
+              <img src='{{ featured.book_cover }}' class="col s12 m3 responsive-img" id="image" alt="book_cover">
+              <div>
+                <h4 class="col s12 m9 center-align" id="book_title_author">{{ featured.book_title }}
+                  <br> by {{ featured.book_author }}</h4>
+              </div>
+              <p class="col s12 m9 center-align">{{ featured.book_desc }}</p>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
     
 
 {% endblock %}

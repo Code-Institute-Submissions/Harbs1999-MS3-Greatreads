@@ -24,7 +24,7 @@
                 <!-- Book Card - Edit and Delete buttons -->
                 <div class="card-action">
                     <a href="{{ url_for('edit_book', book_id=book._id) }}" class="btn green darken-1 s6">Edit</a>
-                    <a href="#" class="btn red darken-2 s6">Delete</a>
+                    <a href="{{ url_for('delete_book', book_id=book._id) }}" class="btn red darken-2 s6">Delete</a>
                 </div>
             </div>
         </div>

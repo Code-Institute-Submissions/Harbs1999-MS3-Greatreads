@@ -19,9 +19,30 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/home")
-def home():
-    return render_template("index.html")
+@app.route("/index", methods=["GET", "POST"])
+def index():
+    featured = mongo.db.featured.find_one()
+
+    return render_template("index.html", featured=featured)
+
+
+@app.route("/edit_featured", methods=["GET", "POST"])
+def edit_featured():
+    if request.method == "POST":
+        book_details = {
+            "book_cover": request.form.get("book_cover"),
+            "book_title": request.form.get("book_title"),
+            "book_author": request.form.get("book_author"),
+            "book_desc": request.form.get("book_desc"),
+            "user": session["user"]
+        }
+
+        featured = mongo.db.featured.find_one()
+        mongo.db.featured.update(featured, book_details)
+        flash("Feature Updated!")
+        redirect(url_for('index'))
+
+    return render_template("edit_featured") 
 
 
 @app.route("/sign_up", methods=["GET", "POST"])
@@ -62,7 +83,7 @@ def login():
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
 
-                return redirect(url_for("profile", username=session["user"]))
+                return redirect(url_for("index", username=session["user"]))
             else:
                 flash("Incorrect Username/Password")
                 return redirect(url_for("login"))
@@ -103,10 +124,11 @@ def get_books():
 @app.route("/book/<book_id>")
 def book(book_id):
     books = mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    reviews = mongo.db.reviews.find()
     
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("book.html", books=books, username=username)
+    return render_template("book.html", books=books, username=username, reviews=reviews)
 
 
 @app.route("/add_book", methods=["GET", "POST"])
@@ -127,6 +149,21 @@ def add_book():
     return render_template("add_book.html")
 
 
+@app.route("/add_review", methods=["GET", "POST"])
+def add_review(): 
+
+    if request.method == "POST":
+        review_book = {
+            "review": request.form.get("review"),
+            "user": session["user"]
+        }
+        mongo.db.reviews.insert_one(review_book)
+        flash("Review Added!")
+        return redirect(url_for('get_books'))
+
+    return render_template("add_review.html")
+
+
 @app.route("/edit_book/<book_id>", methods=["GET", "POST"])
 def edit_book(book_id):
     if request.method == "POST":
@@ -142,13 +179,19 @@ def edit_book(book_id):
         flash("Book Updated!")
         return redirect(url_for("get_books"))
 
-
     books = mongo.db.books.find_one({"_id": ObjectId(book_id)})
     return render_template("edit_book.html", books=books)
+
+
+@app.route("/delete_book/<book_id>")
+def delete_book(book_id):
+    mongo.db.books.remove({"_id": ObjectId(book_id)})
+    flash("Book Deleted.")
+    return redirect(url_for("get_books"))
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
             

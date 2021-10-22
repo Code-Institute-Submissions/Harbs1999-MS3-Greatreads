@@ -7,21 +7,23 @@
           <div class="row">
             <img src='{{ books.book_cover }}' class="col s12 m3 responsive-img" id="image" alt="book_cover">
             <div>
-              <h4 class="col s11 m7 center-align" id="book_title_author">{{ books.book_title }}
+              <h4 class="col s12 m9 center-align" id="book_title_author">{{ books.book_title }}
                 <br> by {{ books.book_author }}</h4>
             </div>
-            <div class="col s1 m2 center-align">
-              <a href=""><i class="far fa-thumbs-up"></i></a>
-              <p class="likes">Likes</p>
-            </div>
-            <p class="col s12">{{ books.book_desc }}</p>
+            <p class="col s12 m9">{{ books.book_desc }}</p>
             <br>
           </div>
           <div class="center-align">
               <h4>Reviews</h4>
-              <h6 class="col s12 left-align">{{ username }}'s review:</h6>
+              <a href="{{ url_for('add_review') }}" class="btn-large blue darken-1 text-shadow">Add Review</a>
+            {% for review in reviews %}
+            
+              <div class="center-align">
+              <h6 class="col s12 left-align">{{ review.user }}'s review:</h6>
               <br>
-              <p>{{ books.review }}</p>
+              <p>{{ review.review }}</p>
+              </div>
+            {% endfor %}
             </div>
         </div>
       </div>
