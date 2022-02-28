@@ -1,5 +1,4 @@
 breezy==3.0.2
-bson==0.5.10
 certifi==2019.11.28
 chardet==3.0.4
 click==8.0.4
