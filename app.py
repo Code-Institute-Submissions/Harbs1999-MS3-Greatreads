@@ -9,7 +9,6 @@ if os.path.exists("env.py"):
     import env
 
 
-
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -146,7 +145,7 @@ def add_book():
         mongo.db.books.insert_one(book_details)
         flash("Your book has been added!")
         return redirect(url_for('get_books'))
-        
+      
     return render_template("add_book.html")
 
 
@@ -195,4 +194,3 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=False)
-            
