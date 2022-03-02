@@ -67,6 +67,8 @@ I used a simple repeating book background image for the background as I believe 
 *  IDE used to create the site.
 6.  Balsamiq
 *  Used for planning of the project.
+7.  Flask-Pymongo
+*  Used to connect to MongoDB and develop with it.
 ## Testing
 *  Chrome Dev tools were constantly used to test the site and its responsiveness, also other web browsers were tested with the site.
 *  Tested all links and buttons to ensure they were all connected appropriately.
@@ -79,6 +81,11 @@ I used a simple repeating book background image for the background as I believe 
 *  Code was used from the Code Institute Task Manager Mini Project to set up some of the log in/sign up functionality.
 ### Media:
 *  This is the background image used for the background of the site. [BG-Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoQe3X1GiBNygPMihib5H3skpyTrBJLadBWEx5mkFZjbNHzRkdxQN8qXDa0LkESa-hctc&usqp=CAU)
+*  This is the book cover for A Brief History of Time. [book cover](https://images-na.ssl-images-amazon.com/images/I/81pQPZAFWbL.jpg)
+*  This is the book cover for Dune. [book cover](https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1555447414l/44767458.jpg)
+*  This is the book cover for It. [book cover](https://images-na.ssl-images-amazon.com/images/I/61QiVXXKB5L.jpg)
+*  This is the book cover for Annihilation. [book cover](https://images-na.ssl-images-amazon.com/images/I/81FSip5qwhL.jpg)
+
 ### Acknowledgments:
 *  I had help with design and code from my mentor Akshat Garg
 *  I had support from community members on slack and stack overflow.
