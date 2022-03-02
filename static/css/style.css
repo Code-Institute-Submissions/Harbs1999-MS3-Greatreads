@@ -13,8 +13,21 @@ nav ul a {
     font-size: 1.3rem;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5 {
     text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.75);
+}
+
+h6 {
+    font-weight: 600;
+}
+
+.review {
+    font-weight: 400;
+    padding: 20px;
+}
+
+.under-card-text {
+    background-color: #ffffff;
 }
 
 i {
@@ -50,6 +63,15 @@ i {
 }
 
 /* Materialize Label Colors/styling */
+
+.book-details {
+    color: #e32a00 !important;
+}
+
+.review-box {
+    margin-top: 20px;
+    background-color: #ffffff;
+}
 
 .input-field label {
     color: rgba(0, 0, 0, 0.75);

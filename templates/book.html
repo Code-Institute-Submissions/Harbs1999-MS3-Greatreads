@@ -18,10 +18,10 @@
               <a href="{{ url_for('add_review') }}" class="btn-large blue darken-1 text-shadow">Add Review</a>
             {% for review in reviews %}
             
-              <div class="center-align">
-              <h6 class="col s12 left-align">{{ review.user }}'s review:</h6>
+              <div class="review-box center-align">
+              <h6 class="col s12 left-align black-text">{{ review.user }}'s review:</h6>
               <br>
-              <p>{{ review.review }}</p>
+              <p class="black-text review">{{ review.review }}</p>
               </div>
             {% endfor %}
             </div>
